@@ -1,0 +1,18 @@
+.texto-animado {
+  font-size: 3rem; /* Tamaño de fuente base */
+  font-weight: bold;
+  background: linear-gradient(to right, #00ffff, #6ebdf9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; /* Centra el texto */
+  z-index: 1;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .texto-animado {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}

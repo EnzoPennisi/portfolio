@@ -1,0 +1,48 @@
+.portfolio-section {
+  width: 80%;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  background-color: transparent;
+}
+
+.skills-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 24px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0, 0.5);
+}
+
+.skills-subtitle img {
+  margin-right: 8px;
+  width: 36px;
+  height: 36px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .portfolio-section {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    width: 95%;
+  }
+
+  .skills-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .skills-subtitle img {
+    margin-right: 8px;
+    width: 36px;
+    height: 36px;
+  }
+}

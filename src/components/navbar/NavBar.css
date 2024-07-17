@@ -1,0 +1,69 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+  padding: 0 20px; /* Espacio alrededor de los elementos internos */
+  border-radius: 12px;
+  margin: 20px auto 0;
+  background-color: rgba(40, 40, 40, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link {
+  display: flex; /* Utilizar flexbox para alinear ícono y texto */
+  align-items: center; /* Alinear ícono y texto verticalmente */
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  padding: 15px 20px; /* Aumento del padding para un mejor toque */
+  font-weight: 500; /* Fuente un poco más gruesa */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para el hover */
+  gap: 10px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  background-color: rgba(255, 255, 255, 0.05); /* Efecto hover más sutil */
+  color: cornflowerblue; /* Mantener el color blanco al pasar el mouse */
+  border-radius: 15px; /* Bordes redondeados en los enlaces al pasar el mouse */
+}
+
+.navbar .nav-link .icon {
+  width: 1.5rem; /* Ajusta el tamaño del icono según sea necesario */
+}
+
+/* Añadir un indicador para la sección activa */
+.navbar .nav-link.active {
+  position: relative;
+}
+
+.navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: cornflowerblue; /* Color del subrayado */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar .nav-link {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  .navbar .nav-link .icon {
+    width: 1rem;
+  }
+}

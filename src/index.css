@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #0f0c29 0%, #001f4d 50%, #002966 100%);
+  margin: 0rem;
+}
+
+:root {
+  --font-size-text-desktop: 1.2rem;
+  --font-size-title-desktop: 1.7rem;
+  --font-size-text-notebook: 1.1rem;
+  --font-size-title-notebook: 1.5rem;
+  --font-size-text-mobile: 1rem;
+  --font-size-title-mobile: 1.4rem;
+}

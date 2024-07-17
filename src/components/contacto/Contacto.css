@@ -1,0 +1,205 @@
+.contact-section {
+  width: 80%;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  gap: 64px;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  min-width: 35rem;
+  text-wrap: pretty;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  background: radial-gradient(circle, cornflowerblue, rgb(2, 41, 114));
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  padding: 20px; /* Espaciado interno */
+  width: 95%; /* Ancho completo del contenedor */
+  margin: 20px 0; /* Espaciado vertical */
+  position: relative; /* Necesario para el overlay */
+  border: 3px solid rgb(0, 0, 0);
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(
+    93,
+    93,
+    93,
+    0.5
+  ); /* Fondo semitransparente para mejorar la legibilidad del texto */
+  border-radius: 8px; /* Bordes redondeados */
+  z-index: 1; /* Coloca el overlay por encima del fondo pero por debajo del contenido */
+}
+
+.contact-card p {
+  line-height: 1.6; /* Altura de línea para mejor legibilidad */
+  z-index: 1;
+}
+
+.card-title {
+  align-self: center;
+  font-size: var(--font-size-title-desktop); /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.card-text {
+  font-size: var(--font-size-text-desktop); /* Tamaño de fuente más grande */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.card-email {
+  font-size: 1.6em;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 48px;
+  background: linear-gradient(to right, #00ffff, #6ebdf9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-photo {
+  width: 100%;
+  max-width: 240px; /* Ancho máximo de la foto */
+  border-radius: 15px; /* Bordes redondeados */
+  border: 3px solid rgb(0, 0, 0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  margin-bottom: 20px; /* Espaciado inferior */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el efecto hover */
+  z-index: 2;
+}
+
+.contact-photo:hover {
+  transform: scale(1.05) rotate(5deg); /* Efecto de agrandamiento e inclinación al pasar el cursor */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el cursor */
+  filter: brightness(1.1); /* Aumenta el brillo de la imagen */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* Espaciado entre iconos */
+  margin-top: 20px; /* Espaciado superior */
+  z-index: 2;
+}
+
+.social-icons img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  transition: transform 0.3s ease;
+}
+
+.send-msg {
+  width: 240px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 8px;
+  z-index: 1;
+}
+
+.send-msg .icon {
+  width: 2rem;
+}
+
+.send-msg span {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-section {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    width: 95%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-left,
+  .contact-right {
+    min-width: 0rem;
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: var(--font-size-title-mobile);
+  }
+
+  .card-text {
+    font-size: var(--font-size-text-mobile);
+  }
+
+  .card-email {
+    font-size: var(--font-size-title-mobile);
+  }
+
+  .contact-photo {
+    max-width: 180px;
+  }
+
+  .social-icons img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .send-msg {
+    width: 200px;
+    height: 40px;
+  }
+
+  .send-msg .icon {
+    width: 1.5rem;
+  }
+
+  .send-msg span {
+    font-size: 0.9rem;
+  }
+}

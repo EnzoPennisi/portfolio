@@ -1,0 +1,154 @@
+.home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 80%;
+  margin: auto;
+}
+
+.subtitle {
+  align-self: flex-start;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.subtitle img {
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.home-card {
+  text-wrap: pretty;
+
+  font-size: var(--font-size-text-desktop);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease,
+    background-color 0.3s ease;
+  border: 2px solid transparent;
+  padding-left: 0.5rem;
+  border-radius: 8px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+  backdrop-filter: blur(2px);
+  position: relative; /* Asegura que el pseudo-elemento se posicione correctamente */
+  overflow: hidden; /* Mantiene todo dentro de los bordes redondeados */
+}
+
+.home-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  height: 0%;
+  background-color: rgba(143, 141, 255, 0.15);
+  transition: width 0.4s ease, height 0.4s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.home-card:hover::before {
+  width: 200%; /* Asegura que cubra completamente la tarjeta */
+  height: 200%;
+}
+
+.home-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.download-button {
+  width: 240px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  padding: 0 20px;
+}
+
+.download-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.download-button p {
+  font-size: 1rem;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-section {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    width: 95%;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .subtitle img {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .home-container {
+    width: 90%;
+  }
+
+  .home-card {
+    font-size: var(--font-size-text-mobile);
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .download-button {
+    display: flex;
+    text-wrap: pretty;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+  }
+
+  .download-button p {
+    font-size: 0.9rem;
+  }
+}
