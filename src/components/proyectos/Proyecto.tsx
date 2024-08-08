@@ -1,36 +1,53 @@
 import "./Proyecto.css"
-import bsImage from "../../assets/imgs/BuenSabor.webp"
-import hendrixImage from "../../assets/imgs/MusicalHendrix.webp"
-import recFacialImage from "../../assets/imgs/ReconocimientoFacial.webp"
-import noticiasImage from "../../assets/imgs/NoticiasPhp.webp"
 import CIcon from "@coreui/icons-react"
 import { cibGithub, cilScreenDesktop } from "@coreui/icons"
-import reactLogo from "../../assets/icons/ReactLogo.webp";
-import tsLogo from "../../assets/icons/TypeScriptLogo.webp";
-import javaLogo from "../../assets/icons/JavaLogo.webp";
-import springLogo from "../../assets/icons/SpringBootLogo.webp";
-import mySqlLogo from "../../assets/icons/MySqlLogo.webp";
-import auto0Logo from "../../assets/icons/auth0Logo.webp";
-import mpLogo from "../../assets/icons/MercadoPagoLogo.webp";
-import pyLogo from "../../assets/icons/PythonLogo.svg";
-import phpLogo from "../../assets/icons/PhpLogo.svg";
 import { useTranslation } from "react-i18next"
+import { ProyectoData } from "./ProyectoData"
 
-function ImagenProyecto({ img, tecnologias }: { img: string, tecnologias: string[] }) {
+interface Tecnologia {
+    logo: string;
+    name: string;
+}
+
+interface ImagenProyectoProps {
+    img: string;
+    tecnologias: Tecnologia[];
+}
+
+interface DescripcionProyectoProps {
+    nombre: string;
+    descripcion: string;
+    codigoUrl: string;
+    demoUrl: string;
+}
+
+interface ProjectCardProps {
+    nombre: string;
+    descripcion: string;
+    img: string;
+    codigoUrl: string;
+    demoUrl: string;
+    tecnologias: Tecnologia[];
+}
+
+function ImagenProyecto({ img, tecnologias }: ImagenProyectoProps) {
     return (
         <div className="project-img-container">
             <img src={img} alt="" className="project-img" />
             <div className="tech-logos-container">
 
-                {tecnologias.map((logo, index) => (
-                    <img key={index} src={logo} alt="" className="tech-logo" />
+                {tecnologias.map((tecnologia, index) => (
+                    <div className="tech-logo" key={index}>
+                        <img src={tecnologia.logo} alt={tecnologia.name} className="tech-logo-img" />
+                        <span>{tecnologia.name}</span>
+                    </div>
                 ))}
             </div>
         </div>
     )
 }
 
-function DescripcionProyecto({ nombre, descripcion, codigoUrl, demoUrl }: { nombre: string, descripcion: string, codigoUrl: string, demoUrl: string }) {
+function DescripcionProyecto({ nombre, descripcion, codigoUrl, demoUrl }: DescripcionProyectoProps) {
     const { t } = useTranslation();
 
     return (
@@ -58,7 +75,7 @@ function DescripcionProyecto({ nombre, descripcion, codigoUrl, demoUrl }: { nomb
     )
 }
 
-function ProyectCard({ nombre, descripcion, img, codigoUrl, demoUrl, tecnologias }: { img: string, nombre: string, descripcion: string, codigoUrl: string, demoUrl: string, tecnologias: string[] }) {
+function ProjectCard({ nombre, descripcion, img, codigoUrl, demoUrl, tecnologias }: ProjectCardProps) {
 
     return (
         <div className="project-card-container">
@@ -70,49 +87,13 @@ function ProyectCard({ nombre, descripcion, img, codigoUrl, demoUrl, tecnologias
 
 export function Proyecto() {
 
-    const { t } = useTranslation();
-
-    const projects = [
-        {
-            nombre: t('portfolio.project1.name'),
-            descripcion: t('portfolio.project1.description'),
-            img: bsImage,
-            codigoUrl: "https://github.com/EnzoPennisi/BuenSabor",
-            demoUrl: "https://buen-sabor-front-ten.vercel.app/",
-            tecnologias: [reactLogo, tsLogo, javaLogo, springLogo, mySqlLogo, auto0Logo, mpLogo]
-        },
-        {
-            nombre: t('portfolio.project2.name'),
-            descripcion: t('portfolio.project2.description'),
-            img: hendrixImage,
-            codigoUrl: "https://github.com/EnzoPennisi/instrumentos-hendrix",
-            demoUrl: "",
-            tecnologias: [reactLogo, tsLogo, javaLogo, springLogo, mySqlLogo, mpLogo]
-        },
-        {
-            nombre: t('portfolio.project3.name'),
-            descripcion: t('portfolio.project3.description'),
-            img: noticiasImage,
-            codigoUrl: "https://github.com/EnzoPennisi/empresa-noticias",
-            demoUrl: "",
-            tecnologias: [phpLogo, mySqlLogo]
-        },
-        {
-            nombre: t('portfolio.project4.name'),
-            descripcion: t('portfolio.project4.description'),
-            img: recFacialImage,
-            codigoUrl: "https://github.com/EnzoPennisi/reconocimiento-facial",
-            demoUrl: "",
-            tecnologias: [pyLogo, mySqlLogo]
-        },
-
-    ]
+    const projects = ProyectoData();
 
     return (
         <div className="project-container">
             {
                 projects.map((project, index) =>
-                    <ProyectCard key={index} nombre={project.nombre} descripcion={project.descripcion} img={project.img} codigoUrl={project.codigoUrl} demoUrl={project.demoUrl} tecnologias={project.tecnologias} />
+                    <ProjectCard key={index} nombre={project.nombre} descripcion={project.descripcion} img={project.img} codigoUrl={project.codigoUrl} demoUrl={project.demoUrl} tecnologias={project.tecnologias} />
                 )
             }
         </div>
